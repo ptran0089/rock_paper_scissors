@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+<script>
+    
+    function game(numberOfGames) {
+
+        let playerScore = 0;
+        let computerScore = 0;
+        let winner;
+        
+        let i = 1;
+        while (i <= numberOfGames) {
+
+            function playRound(playerSelection, computerSelection) {
+                if ((playerSelection === "rock" && computerSelection === "scissors") || 
+                    (playerSelection === "paper" && computerSelection === "rock") || 
+                    (playerSelection === "scissors" && computerSelection === "paper")) {
+                        playerScore++;
+                        winner = "Player";
+                    } else if (playerSelection === computerSelection) {
+                        winner = "";
+                    } else {
+                        computerScore++;
+                        winner = "Computer";
+                    }
+            }
+
+            function computerPlay() {
+                let choices = ["rock", "paper", "scissors"];
+                let randomChoice = choices[Math.floor(Math.random() * choices.length)];
+                return randomChoice;
+            }
+
+            const playerSelection = prompt("Please enter a selection: rock, paper, or scissors");
+            const computerSelection = computerPlay();
+
+            if (playerSelection === "rock" || playerSelection === "paper" || playerSelection === "scissors") {
+                playRound(playerSelection, computerSelection);
+            } else {
+                alert("Unacceptable selection. Please refresh the page and try again");
+                return;
+            }
+
+            console.log("Round " + i);
+            console.log("Player: " + playerSelection);
+            console.log("Computer: " + computerSelection);
+            console.log(winner ? winner + " won!" : "It's a tie");
+            console.log("Player score: " + playerScore);
+            console.log("Computer score " + computerScore);
+            console.log("----------------------------");
+
+            i++;
+        }
+    }
+        
+    game(5);
+    
+</script>
+</head>
+</html>
