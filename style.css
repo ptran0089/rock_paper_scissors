@@ -1,0 +1,136 @@
+/* button style reset */
+button {
+  padding: 0;
+  border: none;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+  /* show a hand cursor on hover; some argue that we
+  should keep the default arrow cursor for buttons */
+  cursor: pointer;
+}
+
+body {
+  background-color: #2b2a25;
+}
+
+main {
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+img {
+  width: 15vh;
+  height: 15vh;
+  margin: 25px;
+}
+
+.icons {
+  margin-bottom: 5vh;
+}
+
+footer, footer > a {
+  display: block;
+  color: rgba(231,131,243);
+  text-decoration: none;
+  font-size: 2vh;
+}
+
+button {
+  display: block;
+  margin: auto;
+  margin-bottom: 10vh;
+
+  --primary-neon:rgba(231,131,243,.9);
+  --light-neon:rgba(46, 249, 239,.7);
+  --pulse-neon:rgba(159,87,161,.5);
+  --bright-neon:rgba(159,87,161,1);
+  --off-neon:#333;
+  
+  --neon-shadow:0 0 7px 4px var(--light-neon), 0 0 7px 4px var(--light-neon) inset;
+  --neon-shadow-pulse:0 0 8px 5px var(--pulse-neon), 0 0 8px 5px var(--pulse-neon) inset;
+  --neon-shadow-bright:0 0 8px 4px var(--bright-neon), 0 0 8px 4px var(--bright-neon) inset;
+  --neon-shadow-text:0 0 7px var(--primary-neon);
+  
+  width:calc(22vh + 6px);
+  height:calc(8vh + 6px);
+  color:var(--primary-neon);
+  text-shadow:var(--neon-shadow-text);
+  border:3px solid var(--primary-neon);
+  border-radius:5px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-transform:uppercase;
+  font-size:3vh;
+  font-weight:bold;
+  box-shadow:var(--neon-shadow);
+  animation:flicker 10s linear infinite;
+}
+
+@keyframes flicker {
+  0% {
+    box-shadow:var(--neon-shadow);
+  }
+  45% {
+    box-shadow:var(--neon-shadow-pulse);
+  }
+  90% {
+    box-shadow:var(--neon-shadow);
+    border-color:var(--primary-neon);
+    color:var(--primary-neon);
+    text-shadow:var(--neon-shadow-text);
+  }
+  90.01% {
+    box-shadow:none;
+    border-color:var(--off-neon);
+    color:var(--off-neon);
+    text-shadow:none;
+  }
+  94% {
+    box-shadow:none;
+    border-color:var(--off-neon);
+  }
+  94.01% {
+    box-shadow:var(--neon-shadow);
+    border-color:var(--primary-neon);
+  }
+  95% {
+    box-shadow:var(--neon-shadow);
+    border-color:var(--primary-neon);
+  }
+  95.01% {
+    box-shadow:none;
+    border-color:var(--off-neon);
+  }
+  95.5% {
+    box-shadow:none;
+    border-color:var(--off-neon);
+  }
+  95.51% {
+    box-shadow:var(--neon-shadow);
+    border-color:var(--primary-neon);
+  }
+  96% {
+    box-shadow:var(--neon-shadow);
+    border-color:var(--primary-neon);
+  }
+  96.01% {
+    box-shadow:none;
+    border-color:var(--off-neon);
+  }
+  96.5% {
+    box-shadow:none;
+    border-color:var(--off-neon);
+  }
+  96.51% {
+    box-shadow:var(--neon-shadow-bright);
+    border-color:var(--primary-neon);
+  }
+  100% {
+    box-shadow:var(--neon-shadow);
+    border-color:var(--primary-neon);
+  }
+}
