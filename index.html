@@ -3,14 +3,23 @@
   <head>
     <title>Rock Paper Scissors</title>
     <link rel="stylesheet" type="text/css" href="./style.css">
+    <script src="app.js" charset="utf-8"></script>
   </head>
   <body>
     <main>
-      <div class="icons">
-        <button>Start Game</button>
-        <img src="./images/rock.png" alt="neon rock image">
-        <img src="./images/paper.png" alt="neon paper image">
-        <img src="./images/scissors.png" alt="neon scissors image">
+      <div class="container">
+          <div class="item1 neon flicker">
+            <div>Computer score: <span id="computer-score">0</span></div>
+            <div>Player score: <span id="player-score">0</span></div>
+          </div>
+          <img class="item2" id="computer">
+          <div class="item3" id="winner"></div>
+          <img class="item4" id="player" >
+          <div class="item5">
+            <img id="rock" src="./images/rock.png" alt="neon rock image">
+            <img id="paper" src="./images/paper.png" alt="neon paper image">
+            <img id="scissors" src="./images/scissors.png" alt="neon scissors image">
+          </div>
       </div>
     </main>
     <footer>
@@ -20,60 +29,3 @@
     </footer>
   </body>
 </html>
-
-  <!-- <script>
-      
-      function game(numberOfGames) {
-  
-          let playerScore = 0;
-          let computerScore = 0;
-          let winner;
-          
-          let i = 1;
-          while (i <= numberOfGames) {
-  
-              function playRound(playerSelection, computerSelection) {
-                  if ((playerSelection === "rock" && computerSelection === "scissors") || 
-                      (playerSelection === "paper" && computerSelection === "rock") || 
-                      (playerSelection === "scissors" && computerSelection === "paper")) {
-                          playerScore++;
-                          winner = "Player";
-                      } else if (playerSelection === computerSelection) {
-                          winner = "";
-                      } else {
-                          computerScore++;
-                          winner = "Computer";
-                      }
-              }
-  
-              function computerPlay() {
-                  let choices = ["rock", "paper", "scissors"];
-                  let randomChoice = choices[Math.floor(Math.random() * choices.length)];
-                  return randomChoice;
-              }
-  
-              const playerSelection = prompt("Please enter a selection: rock, paper, or scissors");
-              const computerSelection = computerPlay();
-  
-              if (playerSelection === "rock" || playerSelection === "paper" || playerSelection === "scissors") {
-                  playRound(playerSelection, computerSelection);
-              } else {
-                  alert("Unacceptable selection. Please refresh the page and try again");
-                  return;
-              }
-  
-              console.log("Round " + i);
-              console.log("Player: " + playerSelection);
-              console.log("Computer: " + computerSelection);
-              console.log(winner ? winner + " won!" : "It's a tie");
-              console.log("Player score: " + playerScore);
-              console.log("Computer score " + computerScore);
-              console.log("----------------------------");
-  
-              i++;
-          }
-      }
-          
-      game(5);
-      
-  </script> -->
